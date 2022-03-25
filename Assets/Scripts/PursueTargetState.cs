@@ -13,12 +13,20 @@ public class PursueTargetState : State
 
     public override State Tick(ZombieManager zombieManager)
     {
+        // if zombie is being hurt or in some action, pause the state
+        if (zombieManager.isPerformingAction)
+        {
+            zombieManager.animator.SetFloat("Vertical", 0, 0.2f, Time.deltaTime);
+            return this;
+        }
+
         Debug.Log("running the pursue target state");
         MoveTowardsCurrentTarget(zombieManager);
         RotateTowardsCurrentTarget(zombieManager);
 
-        if (zombieManager.distanceFromCurrentTarget <= zombieManager.minimumAttackDistance)
+        if (zombieManager.distanceFromCurrentTarget <= zombieManager.maximumAttackDistance)
         {
+            zombieManager.zombieNavmeshAgent.enabled = false;
             return attackState;
         }
         else

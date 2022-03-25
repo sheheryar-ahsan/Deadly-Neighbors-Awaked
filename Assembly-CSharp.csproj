@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\WeaponLoaderSlot.cs" />
     <Compile Include="Assets\Scripts\RightHandIKTarget.cs" />
+    <Compile Include="Assets\Scripts\AttackState.cs" />
     <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
     <Compile Include="Assets\Scripts\AnimatorManager.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
@@ -76,7 +77,11 @@
     <Compile Include="Assets\Scripts\PlayerEquipmentManager.cs" />
     <Compile Include="Assets\Scripts\LeftHandIKTarget.cs" />
     <Compile Include="Assets\Scripts\PursueTargetState.cs" />
-    <Compile Include="Assets\Scripts\AttackState.cs" />
+    <Compile Include="Assets\Scripts\ResetAnimatorBoolZombie.cs" />
+    <Compile Include="Assets\Scripts\ZombieEffectsManager.cs" />
+    <Compile Include="Assets\Scripts\ZombieAttackAction.cs" />
+    <Compile Include="Assets\Scripts\ZombieAnimatorManager.cs" />
+    <Compile Include="Assets\Scripts\ZombieStatManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Game Assets\PolygonParticles\Materials\SHARED BY LUXURYPANDA.txt" />

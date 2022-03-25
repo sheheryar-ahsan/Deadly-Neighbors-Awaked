@@ -61,6 +61,9 @@ public class PlayerCamera : MonoBehaviour
     {
         if (playerManager.isAiming) // if we are aiming we want camera object to rotate itself
         {
+            minimumPivotAngle = -50;
+            maximumPivotAngle = 50;
+            
             cameraPivot.localRotation = Quaternion.Euler(0, 0, 0);
 
             lookAmountVertical = lookAmountVertical + (inputManager.horizontalCameraInput);
@@ -82,6 +85,9 @@ public class PlayerCamera : MonoBehaviour
         }
         else 
         {
+            minimumPivotAngle = -15;
+            maximumPivotAngle = 15;
+
             cameraObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
             lookAmountVertical = lookAmountVertical + (inputManager.horizontalCameraInput);

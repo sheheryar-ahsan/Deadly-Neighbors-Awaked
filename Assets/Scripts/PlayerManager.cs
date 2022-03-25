@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
     private PlayerCamera playerCamera;
     private InputManager inputManager;
     private PlayerLocomotionManager playerLocomotionManager;
-    private PlayerEquipmentManager playerEquipmentManager;
+    public PlayerEquipmentManager playerEquipmentManager;
     private Animator animator;
     private AnimatorManager animatorManager;
 

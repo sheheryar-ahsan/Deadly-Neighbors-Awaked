@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponAnimatorManager : MonoBehaviour
 {
+    private PlayerManager player;
     private Animator weaponAnimator;
 
     [Header("Weapon FX")]
@@ -14,9 +15,16 @@ public class WeaponAnimatorManager : MonoBehaviour
     public Transform weaponMuzzleFlashTransform; // the location muzzle flash fx will instantiated
     public Transform weaponBulletCaseTransform; // the location the bullet case will instantiated
 
+    [Header("Weapon Bullet Range")]
+    [SerializeField] private float bulletRange = 100f;
+
+    [Header("Shootable Layers")]
+    public LayerMask shootableLayers;
+
     private void Awake()
     {
         weaponAnimator = GetComponentInChildren<Animator>();
+        player = GetComponentInParent<PlayerManager>();
     }
 
     public void ShootWeapon(PlayerCamera playerCamera)
@@ -31,9 +39,39 @@ public class WeaponAnimatorManager : MonoBehaviour
         bulletCase.transform.parent = null;
         // shooting something
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.cameraObject.transform.position, playerCamera.cameraObject.transform.forward, out hit))
+        if (Physics.Raycast(playerCamera.cameraObject.transform.position, playerCamera.cameraObject.transform.forward, out hit, bulletRange, shootableLayers))
         {
-            Debug.Log(hit.transform.gameObject.name);
+            Debug.Log(hit.collider.gameObject.layer);
+
+            ZombieEffectsManager zombie = hit.collider.gameObject.GetComponentInParent<ZombieEffectsManager>();
+
+            if (zombie != null)
+            {
+                if (hit.collider.gameObject.layer == 8)
+                {
+                    zombie.DamageZombieHead(player.playerEquipmentManager.weapon.damage);
+                }
+                else if (hit.collider.gameObject.layer == 9)
+                {
+                    zombie.DamageZombieTorso(player.playerEquipmentManager.weapon.damage);
+                }
+                else if (hit.collider.gameObject.layer == 10)
+                {
+                    zombie.DamageZombieRightArm(player.playerEquipmentManager.weapon.damage);
+                }
+                else if (hit.collider.gameObject.layer == 11)
+                {
+                    zombie.DamageZombieLeftArm(player.playerEquipmentManager.weapon.damage);
+                }
+                else if (hit.collider.gameObject.layer == 12)
+                {
+                    zombie.DamageZombieLeftLeg(player.playerEquipmentManager.weapon.damage);
+                }
+                else if (hit.collider.gameObject.layer == 13)
+                {
+                    zombie.DamageZombieRightLeg(player.playerEquipmentManager.weapon.damage);
+                }
+            }
         }
     }
 }
