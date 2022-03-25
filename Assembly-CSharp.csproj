@@ -56,22 +56,27 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\IdleState.cs" />
     <Compile Include="Assets\Scripts\ResetAnimatorBool.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerUIManager.cs" />
+    <Compile Include="Assets\Scripts\ZombieManager.cs" />
+    <Compile Include="Assets\Scripts\WeaponAnimatorManager.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\WeaponItem.cs" />
     <Compile Include="Assets\Scripts\PlayerCamera.cs" />
+    <Compile Include="Assets\Scripts\State.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\WeaponLoaderSlot.cs" />
     <Compile Include="Assets\Scripts\RightHandIKTarget.cs" />
+    <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
     <Compile Include="Assets\Scripts\AnimatorManager.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\PlayerLocomotionManager.cs" />
     <Compile Include="Assets\Scripts\PlayerEquipmentManager.cs" />
     <Compile Include="Assets\Scripts\LeftHandIKTarget.cs" />
-    <Compile Include="Assets\Scripts\PlayerUIManager.cs" />
-    <Compile Include="Assets\Scripts\WeaponAnimatorManager.cs" />
-    <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
+    <Compile Include="Assets\Scripts\PursueTargetState.cs" />
+    <Compile Include="Assets\Scripts\AttackState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Game Assets\PolygonParticles\Materials\SHARED BY LUXURYPANDA.txt" />
